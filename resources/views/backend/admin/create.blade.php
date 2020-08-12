@@ -18,6 +18,15 @@
     <section class="content">
         <div class="row">
             <div class="col-12">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <div class="card card-success">
                     <div class="card-header">
                         <h3 class="card-title">Tambah Data</h3>
@@ -45,6 +54,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Level</label>
                                 <select name="level" class="form-control">
+                                    <option value="Suplier">Suplier</option>
                                     <option value="Admin">Admin</option>
                                     <option value="Super Admin">Super Admin</option>
                                 </select>
@@ -75,10 +85,10 @@
 </div>
 @endsection
 
-@section('customjs')
+@push('customjs')
 <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-@endsection
+@endpush
 
-@section('customscripts')
+@push('customscripts')
 <script src="{{asset('customjs/backend/admin_input.js')}}"></script>
-@endsection
+@endpush

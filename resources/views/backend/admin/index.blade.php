@@ -55,26 +55,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $id=1; @endphp
-                                    @foreach($data as $row)
-                                    <tr>
-                                        <td>{{$id++}}</td>
-                                        <td>{{$row->name}}</td>
-                                        <td>{{$row->username}}</td>
-                                        <td>{{$row->email}}</td>
-                                        <td>{{$row->level}}</td>
-                                        <td class="text-center">
-                                            <form action="{{url('admin/'.$row->id)}}" method="post">
-                                                @csrf
-                                                <input type="hidden" name="_method" value="delete">
-                                                <a href="{{url('admin/'.$row->id.'/edit')}}"
-                                                    class="btn btn-success">Edit</a>
-                                                <button type="submit" onclick="return confirm('Hapus Data ?')"
-                                                    class="btn btn-danger">Hapus</a>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                                   
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -96,17 +77,12 @@
 </div>
 @endsection
 
-@section('customjs')
+@push('customjs')
 <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-@endsection
+@endpush
 
-@section('customscripts')
-<script>
-$(function() {
-    $('#list-data').DataTable();
-});
-</script>
-<!-- <script src="{{asset('customjs/backend/admin.js')}}"></script> datatable plugin -->
-@endsection
+@push('customscripts')
+<script src="{{asset('customjs/backend/admin.js')}}"></script>
+@endpush

@@ -36,6 +36,10 @@ class AdminController extends Controller
     //=================================================================
     public function store(Request $request)
     {
+        $request->validate([
+            'username' => ['required', 'unique:users'],
+            'email' => ['required', 'unique:users'],
+        ]);
         $nameland=$request->file('gambar')->getClientOriginalname();
         $lower_file_name=strtolower($nameland);
         $replace_space=str_replace(' ', '-', $lower_file_name);
@@ -72,6 +76,18 @@ class AdminController extends Controller
     //=================================================================
     public function update(Request $request, $id)
     {
+        if($request->username!=$request->oldusername){
+            $request->validate([
+                'username' => ['required', 'unique:users'],
+            ]);
+        }
+
+        if($request->email!=$request->oldemail){
+            $request->validate([
+                'email' => ['required', 'unique:users'],
+            ]);
+        }
+        
         if($request->hasFile('gambar')){
             File::delete('img/admin/'.$request->gambar_lama);
             $nameland=$request->file('gambar')->

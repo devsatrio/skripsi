@@ -18,6 +18,15 @@
     <section class="content">
         <div class="row">
             <div class="col-12">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <div class="card card-warning">
                     <div class="card-header">
                         <h3 class="card-title">Edit Data</h3>
@@ -34,11 +43,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
+                                <input type="hidden" name="oldusername" value="{{$data->username}}">
                                 <input type="text" class="form-control" name="username" value="{{$data->username}}"
                                     required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
+                                <input type="hidden" name="oldemail" value="{{$data->email}}">
                                 <input type="email" class="form-control" name="email" value="{{$data->email}}" required>
                             </div>
                             <div class="form-group">
@@ -48,6 +59,8 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Level</label>
                                 <select name="level" class="form-control">
+                                    <option value="Suplier" @if($data->level=="Suplier") selected @endif>Suplier
+                                    </option>
                                     <option value="Admin" @if($data->level=="Admin") selected @endif>Admin</option>
                                     <option value="Super Admin" @if($data->level=="Super Admin") selected @endif>Super
                                         Admin</option>
@@ -83,10 +96,10 @@
 </div>
 @endsection
 
-@section('customjs')
+@push('customjs')
 <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-@endsection
+@endpush
 
-@section('customscripts')
+@push('customscripts')
 <!-- <script src="{{asset('customjs/backend/admin_input.js')}}"></script> -->
-@endsection
+@endpush
