@@ -5,7 +5,7 @@
         <div class="row mb-2">
 
             <div class="col-sm-12">
-                <h1 class="m-0 text-dark"> Dashboard<small> GMK Gudang</small></h1>
+                <h1 class="m-0 text-dark"> Dashboard</h1>
                 <span>You are loggin as {{Auth::user()->level}}</span>
             </div>
         </div>

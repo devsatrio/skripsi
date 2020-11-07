@@ -81,8 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    New GMK Gudang
+                    Base Laravel 6
                 </div> 
+                <span>By Deifa Satrio</span>
             </div>  
         </div>
     </body> 
