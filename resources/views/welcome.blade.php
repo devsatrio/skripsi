@@ -83,7 +83,7 @@
                 <div class="title m-b-md">
                     New GMK Gudang
                 </div> 
-            </div>
+            </div> 
         </div>
     </body>
 </html>
