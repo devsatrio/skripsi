@@ -5,17 +5,17 @@
 @endsection
 
 @section('content')
-<div class="content-wrapper">
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Admin</h1>
-                </div>
+<div class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0 text-dark"> Admin</h1>
             </div>
         </div>
     </div>
-    <section class="content">
+</div>
+<div class="content">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 @if ($errors->any())
@@ -81,10 +81,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </div>
 @endsection
-
 @push('customjs')
 <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 @endpush

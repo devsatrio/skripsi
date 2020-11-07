@@ -10,17 +10,17 @@
 @endsection
 
 @section('content')
-<div class="content-wrapper">
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Admin</h1>
-                </div>
+<div class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0 text-dark"> Admin</h1>
             </div>
-        </div>
-    </div>
-    <section class="content">
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<div class="content">
+    <div class="container">
         @if (session('status'))
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -55,7 +55,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div><!-- /.container-fluid -->
 </div>
 @endsection
 

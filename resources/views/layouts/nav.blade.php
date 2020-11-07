@@ -1,50 +1,44 @@
-<nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-            <a href="{{url('/home')}}" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    Dashboard
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{url('/admin')}}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                    Admin
-                </p>
-            </a>
-        </li>
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>
-                    Charts
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/charts/chartjs.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>ChartJS</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/charts/flot.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Flot</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/charts/inline.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Inline</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
-    </ul>
-</nav>
+
+<!-- Left navbar links -->
+<ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{{url('/home')}}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+             <a href="{{url('/admin')}}" class="nav-link">Admin</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="#" class="dropdown-item">Some action </a></li>
+              <li><a href="#" class="dropdown-item">Some other action</a></li>
+
+              <li class="dropdown-divider"></li>
+
+              <!-- Level two dropdown-->
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
+                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                  <li>
+                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
+                  </li>
+
+                  <!-- Level three dropdown-->
+                  <li class="dropdown-submenu">
+                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
+                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                      <li><a href="#" class="dropdown-item">3rd level</a></li>
+                      <li><a href="#" class="dropdown-item">3rd level</a></li>
+                    </ul>
+                  </li>
+                  <!-- End Level three -->
+
+                  <li><a href="#" class="dropdown-item">level 2</a></li>
+                  <li><a href="#" class="dropdown-item">level 2</a></li>
+                </ul>
+              </li>
+              <!-- End Level two -->
+            </ul>
+          </li>
+        </ul>

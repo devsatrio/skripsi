@@ -81,13 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Base Laravel 6
+                    New GMK Gudang
                 </div>
-                <div>
-                    <h5>Cara Penggunaan</h5>
-                </div>
-                <p>setting tabel env, migrate tabel</p>
-                <p>register, enjoy</p>
             </div>
         </div>
     </body>
