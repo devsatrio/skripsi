@@ -61,12 +61,6 @@ class AdminController extends Controller
     }
 
     //=================================================================
-    public function show($id)
-    {
-        //
-    }
-
-    //=================================================================
     public function edit($id)
     {
         $data = User::find($id);

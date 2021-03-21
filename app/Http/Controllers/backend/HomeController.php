@@ -8,10 +8,10 @@ use App\User;
 use File;
 use Auth;
 use Hash;
+use DB;
 
 class HomeController extends Controller
 {
-    
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,7 +20,9 @@ class HomeController extends Controller
     //=================================================================
     public function index()
     {
-        return view('backend.dashboard.index');
+        $jumlahadmin = DB::table('users')->count();
+        $jumlahproduk = DB::table('produk')->count();
+        return view('backend.dashboard.index',compact('jumlahadmin','jumlahproduk'));
     }
 
     //==================================================================
@@ -48,7 +50,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                     'gambar'=>$finalname,
                 ]);
             }else{
@@ -58,7 +59,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                     'gambar'=>$finalname,
                     'password'=>Hash::make($request->password),
                 ]);
@@ -71,7 +71,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                 ]);
             }else{
                 User::find($id)
@@ -80,7 +79,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                     'password'=>Hash::make($request->password),
                 ]);
             }

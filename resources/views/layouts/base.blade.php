@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     @yield('token')
-    <title>AdminLTE 3</title>
+    <title>PMPJ</title>
     <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
     @yield('customcss')
     <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
@@ -18,9 +18,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-dark navbar-dark">
             <div class="container">
                 <a href="{{url('/home')}}" class="navbar-brand">
-                    <!-- <img src=".{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
-                        class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-                    <span class="brand-text font-weight-light">BL6</span>
+                    <span class="brand-text font-weight-light"><i class="fas fa-chart-line"></i> PMPJ</span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
@@ -31,7 +29,6 @@
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                     @include('layouts/nav')
-
                 </div>
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                     <li class="nav-item dropdown">

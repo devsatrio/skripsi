@@ -36,54 +36,80 @@
                         @csrf
                         <input type="hidden" name="_method" value="PUT">
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nama</label>
-                                <input type="text" class="form-control" name="nama" value="{{$data->name}}" required
-                                    autofocus>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Nama</label>
+                                        <input type="text" class="form-control" name="nama" value="{{$data->name}}"
+                                            required autofocus>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Username</label>
+                                        <input type="hidden" name="oldusername" value="{{$data->username}}">
+                                        <input type="text" class="form-control" name="username"
+                                            value="{{$data->username}}" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Username</label>
-                                <input type="hidden" name="oldusername" value="{{$data->username}}">
-                                <input type="text" class="form-control" name="username" value="{{$data->username}}"
-                                    required>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="hidden" name="oldemail" value="{{$data->email}}">
+                                        <input type="email" class="form-control" name="email" value="{{$data->email}}"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">No. Telp</label>
+                                        <input type="text" class="form-control" name="telp" value="{{$data->telp}}"
+                                            required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="hidden" name="oldemail" value="{{$data->email}}">
-                                <input type="email" class="form-control" name="email" value="{{$data->email}}" required>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{asset('img/admin/'.$data->gambar)}}" alt="" width="120px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <label for="exampleInputFile">Gambar Baru*</label>
+                                        <input type="file" class="form-control" name="gambar" accept="image/*">
+                                        <input type="hidden" name="gambar_lama" value="{{$data->gambar}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Level</label>
+                                        <select name="level" class="form-control">
+                                            <option value="Admin" @if($data->level=="Admin") selected @endif>Admin
+                                            </option>
+                                            <option value="Super Admin" @if($data->level=="Super Admin") selected
+                                                @endif>Super
+                                                Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">No. Telp</label>
-                                <input type="text" class="form-control" name="telp" value="{{$data->telp}}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Level</label>
-                                <select name="level" class="form-control">
-                                    <option value="Suplier" @if($data->level=="Suplier") selected @endif>Suplier
-                                    </option>
-                                    <option value="Admin" @if($data->level=="Admin") selected @endif>Admin</option>
-                                    <option value="Super Admin" @if($data->level=="Super Admin") selected @endif>Super
-                                        Admin</option>
-                                </select>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <img src="{{asset('img/admin/'.$data->gambar)}}" alt="">
-                                <br>
-                                <label for="exampleInputFile">Gambar Baru*</label>
-                                <input type="file" class="form-control" name="gambar" accept="image/*">
-                                <input type="hidden" name="gambar_lama" value="{{$data->gambar}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Password Baru*</label>
-                                <input type="password" class="form-control" id="password" name="password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Konfirmasi Password Baru*</label>
-                                <input type="password" class="form-control" id="kpassword">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Password Baru*</label>
+                                        <input type="password" class="form-control" id="password" name="password">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Konfirmasi Password Baru*</label>
+                                        <input type="password" class="form-control" id="kpassword">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                         <div class="card-footer">
                             <button type="reset" onclick="history.go(-1)" class="btn btn-danger">Kembali</button>
                             <button type="submit" class="btn btn-primary float-right">Simpan</button>
@@ -92,7 +118,7 @@
                 </div>
             </div>
         </div>
-    </div><!-- /.container-fluid -->
+    </div>
 </div>
 @endsection
 

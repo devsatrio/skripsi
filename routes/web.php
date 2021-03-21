@@ -14,3 +14,6 @@ Route::post('/edit-profile/{id}', 'backend\HomeController@aksieditprofile');
 
 Route::get('/data-admin','backend\AdminController@listdata');
 Route::resource('/admin','backend\AdminController');
+
+Route::get('/data-produk','backend\ProdukController@listdata');
+Route::resource('/produk','backend\ProdukController');
