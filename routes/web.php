@@ -17,3 +17,9 @@ Route::resource('/admin','backend\AdminController');
 
 Route::get('/data-produk','backend\ProdukController@listdata');
 Route::resource('/produk','backend\ProdukController');
+
+Route::get('/data-dataset','backend\DatasetController@listdata');
+Route::resource('/dataset','backend\DatasetController');
+
+Route::get('/prediksi-minat','backend\PrediksiController@index');
+Route::post('/prediksi-minat','backend\PrediksiController@store');

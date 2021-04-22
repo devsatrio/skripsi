@@ -51,8 +51,8 @@
             <div class="col-4">
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>44</h3>
-                        <p>Log Prediksi Minat</p>
+                        <h3>{{$jumlahdataset}}</h3>
+                        <p>Jumlah Dataset</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-vial"></i>
@@ -63,7 +63,8 @@
             <div class="col-12">
                 <div class="alert alert-primary alert-dismissible">
                     <h5><i class="icon fas fa-check"></i> Welcome, {{Auth::user()->level}} {{Auth::user()->username}}</h5>
-                    <a href="#"><button class="btn btn-default" type="button">Tambah Dataset</button></a> <a href="#" class="ml-2"><button class="btn btn-default" type="button">Prediksi Minat</button></a>
+                    <a href="{{url('dataset')}}"><button class="btn btn-default" type="button">Tambah Dataset</button></a> 
+                    <a href="{{url('prediksi-minat')}}" class="ml-2"><button class="btn btn-default" type="button">Prediksi Minat</button></a>
                 </div>
             </div>
         </div>

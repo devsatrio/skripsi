@@ -22,7 +22,8 @@ class HomeController extends Controller
     {
         $jumlahadmin = DB::table('users')->count();
         $jumlahproduk = DB::table('produk')->count();
-        return view('backend.dashboard.index',compact('jumlahadmin','jumlahproduk'));
+        $jumlahdataset = DB::table('dataset')->count();
+        return view('backend.dashboard.index',compact('jumlahadmin','jumlahproduk','jumlahdataset'));
     }
 
     //==================================================================
