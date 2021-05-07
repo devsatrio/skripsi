@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Validator;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use App\models\DatasetModels;
 use DB;
 class DatasetImport implements ToCollection,WithHeadingRow,WithValidation
 {
@@ -26,46 +27,39 @@ class DatasetImport implements ToCollection,WithHeadingRow,WithValidation
         $parameternya=$this->parameternya;
         foreach ($collection as $row){
             $idproduk='datanyakosong';
-            $kproduk = $row['kode_produk'];
+            $jumlahlama = 0;
+            $kproduk = $row['produk_kode'];
+
             $dataproduk = DB::table('produk')->where('kode',$kproduk)->get();
             foreach($dataproduk as $rowproduk){
                 $idproduk=$rowproduk->id;
-                
             }
             if($idproduk!='datanyakosong'){
-                $totaljumlah = $row['bulan_kesatu']+$row['bulan_kedua']+$row['bulan_ketiga']+$row['bulan_keempat']+$row['bulan_kelima']+$row['bulan_keenam']+$row['bulan_ketujuh']+$row['bulan_kedelapan']+$row['bulan_kesembilan']+$row['bulan_kesepuluh']+$row['bulan_kesebelas']+$row['bulan_keduabelas'];
-                if($totaljumlah>$parameternya){
-                    $datafinal[] = [
-                        'produk_id' => $idproduk,
-                        'keterangan' => 'Y',
-                    ];
+                $datasetlama = DB::table('dataset')->where('produk_id',$idproduk)->get();
+                foreach($datasetlama as $rowolddata){
+                    $jumlahlama=$rowolddata->terjual;
+                }
+                $total = $row['jumlah'] + $jumlahlama;
+                if($total>$parameternya){
+                    $data = DatasetModels::firstOrNew(['produk_id' => $idproduk]);
+                    $data->terjual = $total;
+                    $data->keterangan = 'Y';
+                    $data->save();
                 }else{
-                    $datafinal[] = [
-                        'produk_id' => $idproduk,
-                        'keterangan' => 'N',
-                    ];
+                    $data = DatasetModels::firstOrNew(['produk_id' => $idproduk]);
+                    $data->terjual = $total;
+                    $data->keterangan = 'N';
+                    $data->save();
                 }
             }
         }
-        DB::table('dataset')->insert($datafinal);
     }
 
     public function rules(): array
     {
         return [
-            'kode_produk' => 'required|string',
-            'bulan_kesatu' => 'required|numeric',
-            'bulan_kedua' => 'required|numeric',
-            'bulan_ketiga' => 'required|numeric',
-            'bulan_keempat' => 'required|numeric',
-            'bulan_kelima' => 'required|numeric',
-            'bulan_keenam' => 'required|numeric',
-            'bulan_ketujuh' => 'required|numeric',
-            'bulan_kedelapan' => 'required|numeric',
-            'bulan_kesembilan' => 'required|numeric',
-            'bulan_kesepuluh' => 'required|numeric',
-            'bulan_kesebelas' => 'required|numeric',
-            'bulan_keduabelas' => 'required|numeric',
+            'produk_kode' => 'required',
+            'jumlah' => 'required|numeric',
         ];
     }
 }

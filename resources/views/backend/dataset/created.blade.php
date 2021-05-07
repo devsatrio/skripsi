@@ -24,91 +24,6 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <!-- <div class="col-12">
-                <div class="card card-success">
-                    <div class="card-header">
-                        <h3 class="card-title">Tambah Data</h3>
-                    </div>
-                    <form method="POST" role="form" enctype="multipart/form-data" onsubmit="return validasi()"
-                        action="{{url('/dataset')}}">
-                        @csrf
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Pilih Produk</label>
-                                        <select class="form-control select2bs4" name="caridata" id="caridata">
-                                            @foreach($databarang as $row)
-                                            <option value="{{$row->id}}">{{$row->nama}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Keterangan</label>
-                                        <select name="keterangan" class="form-control">
-                                            <option value="Y">Minat Tinggi</option>
-                                            <option value="N">Minat Rendah</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Kode</label>
-                                        <input type="text" class="form-control" id="kode" name="kode" required readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama</label>
-                                        <input type="text" class="form-control" id="nama" name="nama" required readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Model</label>
-                                        <input type="text" class="form-control" id="model" name="model" required
-                                            readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Corak</label>
-                                        <input type="text" class="form-control" id="corak" name="corak" required
-                                            readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Bahan</label>
-                                        <input type="text" class="form-control" id="bahan" name="bahan" required
-                                            readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Harga</label>
-                                        <input type="text" class="form-control" id="harga" name="harga" required
-                                            readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button type="reset" onclick="history.go(-1)" class="btn btn-danger">Kembali</button>
-                            <button type="submit" class="btn btn-primary float-right">Simpan</button>
-                        </div>
-                    </form>
-                </div>
-            </div> -->
             <div class="col-12">
                 @if(Session::get('errorexcel'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -137,18 +52,11 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Pilih File Transaksi</label>
+                                        <label for="exampleInputEmail1">Upload Data Transaksi</label>
                                         <input type="file" class="form-control" id="file_excel" name="file_excel"
                                         accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Parameter Jumlah Terjual</label>
-                                        <input type="number" min="0" class="form-control" id="parameternya"
-                                            name="parameternya" required>
                                     </div>
                                 </div>
                             </div>
@@ -161,8 +69,6 @@
                         </div>
                         <div class="card-footer">
                             <button type="reset" onclick="history.go(-1)" class="btn btn-danger">Kembali</button>
-                            <a href="{{asset('assets/Template_import_dataset.xlsx')}}" class="btn btn-success">Download
-                                Template Import</a>
                             <button type="submit" class="btn btn-primary float-right">Simpan</button>
                         </div>
                     </form>

@@ -44,17 +44,39 @@ class DatasetController extends Controller
     //=================================================================
     public function store(Request $request)
     {
-        // DB::table('dataset')
+        // DB::table('dataset') --->dataset satu
         // ->insert([
         //     'produk_id'=>$request->caridata,
         //     'keterangan'=>$request->keterangan
         // ]);
+
+        //---------------------------------------------------------------
+
+        // if($request->hapusdata=='hapusdata'){ ---> dataset dua
+        //     DB::table('dataset')->truncate();
+        // }
+        // try {
+        //     if($request->hasFile('file_excel')){
+        //         $error = Excel::import(new DatasetImport($request->parameternya), request()->file('file_excel'));
+        //         return redirect('dataset')->with('status','Sukses import data');
+        //      }else{
+        //         Session::flash('errorexcel', 'error uploading data');
+        //         return redirect('dataset/create');
+        //      }
+        // }catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+        //      $failures = $e->failures();
+        //      Session::flash('errorexcel', $failures);
+        //      return back();
+        // }
+
+        //---------------------------------------------------------------
+
         if($request->hapusdata=='hapusdata'){
             DB::table('dataset')->truncate();
         }
         try {
             if($request->hasFile('file_excel')){
-                $error = Excel::import(new DatasetImport($request->parameternya), request()->file('file_excel'));
+                $error = Excel::import(new DatasetImport(300), request()->file('file_excel'));
                 return redirect('dataset')->with('status','Sukses import data');
              }else{
                 Session::flash('errorexcel', 'error uploading data');

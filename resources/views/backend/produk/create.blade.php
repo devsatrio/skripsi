@@ -71,7 +71,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Harga</label>
-                                        <input type="number" min="0" class="form-control" name="harga" required>
+                                        <input type="number" min="60000" max="150000" class="form-control" name="harga" required>
+                                        <span class="text-muted">NB: isikan harga antaran Rp. 60.00 sampai Rp. 150.000</span>
                                     </div>
                                 </div>
                             </div>
