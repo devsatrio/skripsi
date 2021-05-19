@@ -29,7 +29,6 @@ class PrediksiController extends Controller
             ['Resleting', 'Bordir', 'Parasut','Mahal'],
         ];
         $labels = ['tinggi', 'rendah'];
-
         $dataset=[];
         $status=[];
         $datasetnya = DB::table('dataset')
@@ -37,16 +36,16 @@ class PrediksiController extends Controller
         ->leftjoin('produk','produk.id','=','dataset.produk_id')
         ->get();
         foreach($datasetnya as $row){
-            if($row->harga>6000){
+            if($row->harga>60000){
                 $labelharga = 'mahal';
             }else{
                 $labelharga = 'murah';
             }
             $dataset[] = [
                 $row->model,
-            $row->corak,
-            $row->bahan,
-            $labelharga,
+                $row->corak,
+                $row->bahan,
+                $labelharga,
             ];
 
             $status[] = $row->keterangan;

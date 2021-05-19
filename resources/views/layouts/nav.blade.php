@@ -14,6 +14,10 @@
     <li class="nav-item">
         <a href="{{url('/prediksi-minat')}}" class="nav-link">Prediksi Minat</a>
     </li>
+    
+    <li class="nav-item">
+        <a href="{{url('/testing-algoritma')}}" class="nav-link">Testing</a>
+    </li>
     <!-- <li class="nav-item dropdown">
         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             class="nav-link dropdown-toggle">Dropdown</a>

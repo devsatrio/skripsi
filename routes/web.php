@@ -1,11 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
 Route::get('/home', 'backend\HomeController@index')->name('home');
@@ -23,3 +20,6 @@ Route::resource('/dataset','backend\DatasetController');
 
 Route::get('/prediksi-minat','backend\PrediksiController@index');
 Route::post('/prediksi-minat','backend\PrediksiController@store');
+
+Route::get('/testing-algoritma','backend\TestingController@index');
+Route::post('/testing-algoritma/testing','backend\TestingController@store');
